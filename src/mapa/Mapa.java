@@ -22,6 +22,9 @@ public abstract class Mapa {
 
 	public Mapa(String ruta) {
 		cargarMapa(ruta);
+		// asignar al array de tail de cuadros el valor correspondiente
+		// segun el pixel que haiga en el mapa
+		generarMapa();
 	}
 
 	protected void generarMapa() {
@@ -61,7 +64,19 @@ public abstract class Mapa {
 		for (int y = norte; y < sur; y++) {
 			for (int x = oeste; x < este; x++) {
 
-				getCuadro(x, y).mostrar(x, y, pantalla);
+				// getCuadro(x, y).mostrar(x, y, pantalla);
+				if (x < 0 || y < 0 || x >= ancho || y >= alto) {
+					// si esta condicion se cumple es que estamos
+					// fuera del mapa
+					// si salimos, pintamos un cuadro negro
+					Cuadro.VACIO.mostrar(x, y, pantalla);
+				} else {
+					// si estamos dentro del mapa
+					// dibujamos el cuadro que corresponda
+					cuadrosCatalogo[x + y * ancho].mostrar(x, y, pantalla);
+					;
+				}
+
 			}
 		}
 	}

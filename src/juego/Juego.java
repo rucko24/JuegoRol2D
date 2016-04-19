@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import control.Teclado;
 import grapicos.Pantalla;
 import mapa.Mapa;
-import mapa.MapaGenerado;
+import mapa.MapaCargado;
 
 public class Juego extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
@@ -54,7 +54,8 @@ public class Juego extends Canvas implements Runnable {
 
 		pantalla = new Pantalla(ANCHO, ALTO);
 		// 128 * 128, no son pixeles sino, tails
-		mapa = new MapaGenerado(128, 128);
+		// mapa = new MapaGenerado(128, 128);
+		mapa = new MapaCargado("/mapas/mapaDesierto.png");
 		teclado = new Teclado();
 		// que java detecte todas la teclas que se pulsan
 		// dentro del canvas
