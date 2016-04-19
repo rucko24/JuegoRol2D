@@ -9,7 +9,7 @@ public abstract class Cuadro {
 	public int y;
 	// es bueno que cada cuadro tenga su Sprite
 	public Sprite sprite;
-
+	public static final int LADO = 32;
 	public static final Cuadro VACIO = new CuadroVacio(Sprite.VACIO);
 	// Coleccion de cuadros
 	public static final Cuadro ASFALTO = new CuadroAsfalto(Sprite.ASFALTO);

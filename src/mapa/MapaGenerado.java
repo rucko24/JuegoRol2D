@@ -4,7 +4,9 @@ import java.util.Random;
 
 public class MapaGenerado extends Mapa {
 
-	private final Random aleatorio = new Random();
+	// Radom static, para tener solo uno de esta clase
+	// para no tener un crash
+	private static final Random aleatorio = new Random();
 
 	public MapaGenerado(int ancho, int alto) {
 		super(ancho, alto);
@@ -17,7 +19,7 @@ public class MapaGenerado extends Mapa {
 			for (int x = 0; x < ancho; x++) {
 				// esto nos ayuda a navegar al cuadrado
 				// en concreto
-				cuadros[x + y * ancho] = aleatorio.nextInt();
+				cuadros[x + y * ancho] = aleatorio.nextInt(3);
 			}
 		}
 	}

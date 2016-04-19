@@ -53,11 +53,17 @@ public final class Pantalla {
 
 			for (int x = 0; x < cuadro.sprite.obtenerLado(); x++) {
 				int posicionX = x + compensacionX;
+
 				// controlar para no dibujar fuera de la
 				// pantalla
-				if (posicionX < 0 || posicionX > ancho || posicionY < 0 || posicionY > alto) {
+				// añadido el >= ancho y >= alto
+				if (posicionX < -cuadro.sprite.obtenerLado() || posicionX >= ancho || posicionY < 0
+						|| posicionY >= alto) {
 					break;
 
+				}
+				if (posicionX < 0) {
+					posicionX = 0;
 				}
 				// asignacion de arrays para llenarlo de un cuadro con su
 				// respectivo sprite

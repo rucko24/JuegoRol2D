@@ -13,6 +13,8 @@ import javax.swing.JFrame;
 
 import control.Teclado;
 import grapicos.Pantalla;
+import mapa.Mapa;
+import mapa.MapaGenerado;
 
 public class Juego extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
@@ -22,6 +24,9 @@ public class Juego extends Canvas implements Runnable {
 
 	private static JFrame ventana;
 	private static final String NOMBRE = "Juego";
+	private static String CONTADOR_FPS = "";
+	private static String CONTADOR_APS = "";
+
 	private static int aps = 0;
 	private static int fps = 0;
 
@@ -31,6 +36,7 @@ public class Juego extends Canvas implements Runnable {
 	private static Thread thread;
 	private static Teclado teclado;
 	private static Pantalla pantalla;
+	private static Mapa mapa;
 
 	private static BufferedImage imagen = new BufferedImage(ANCHO, ALTO, BufferedImage.TYPE_INT_RGB);
 	// acceder a la imagen en forma de array de pixeles, nos devuelve un array
@@ -47,6 +53,8 @@ public class Juego extends Canvas implements Runnable {
 		setPreferredSize(new Dimension(ANCHO, ALTO));
 
 		pantalla = new Pantalla(ANCHO, ALTO);
+		// 128 * 128, no son pixeles sino, tails
+		mapa = new MapaGenerado(128, 128);
 		teclado = new Teclado();
 		// que java detecte todas la teclas que se pulsan
 		// dentro del canvas
@@ -57,6 +65,7 @@ public class Juego extends Canvas implements Runnable {
 		ventana.setResizable(false);
 		ventana.setLayout(new BorderLayout());
 		ventana.add(this, BorderLayout.CENTER);
+		ventana.setUndecorated(true);
 		ventana.pack();
 		ventana.setLocationRelativeTo(null);
 		ventana.setVisible(true);
@@ -88,14 +97,19 @@ public class Juego extends Canvas implements Runnable {
 		// Direccion de controles
 		// arriba y++ para que el mapa baje
 		// o sea, funciona al reves todo
+		/*
+		 * cambio en los controles, todo al reves
+		 */
 		if (teclado.arriba) { // tecla W
-			y++;// abajo
+			y--;// abajo
 		} else if (teclado.abajo) {
-			y--;// arriba
+			y++;// arriba
 		} else if (teclado.izquierda) {
-			x++; // derecha
+			x--; // derecha
 		} else if (teclado.derecha) {
-			x--;// izquierda
+			x++;// izquierda
+		} else if (teclado.salir) {
+			System.exit(0);
 		}
 
 		aps++;
@@ -117,7 +131,7 @@ public class Juego extends Canvas implements Runnable {
 
 		//
 		pantalla.limpiar();
-		// pantalla.mostrar(x, y);
+		mapa.mostrar(x, y, pantalla);
 
 		// manera mas elegante de copiar los 2 arrays mas rapido
 		// copiando los graficos de la pantalla al juego
@@ -129,10 +143,16 @@ public class Juego extends Canvas implements Runnable {
 
 		// aqui argumentos para que dibuje la img
 		g.drawImage(imagen, 0, 0, getWidth(), getHeight(), null);
-		g.setColor(Color.white);
+		g.setColor(Color.white);// cuadrado blanco, para simular un personaje
 
 		// para que salga en el centro de la pantalla
 		g.fillRect(ANCHO / 2, ALTO / 2, 32, 32);
+
+		/*
+		 * para dibujar un String en pantalla de los aps_fps
+		 */
+		g.drawString(CONTADOR_APS, 10, 20);
+		g.drawString(CONTADOR_FPS, 10, 35);
 
 		// destruye la memoria que g tenia contruida
 		g.dispose();
@@ -200,8 +220,12 @@ public class Juego extends Canvas implements Runnable {
 
 			if (System.nanoTime() - referenciaContador > NS_POR_SEGUNDO) {
 				// para actualizar el contador cada segundo
-
-				ventana.setTitle(NOMBRE + " || APS: " + aps + " || FPS: " + fps);
+				/*
+				 * inicializando los String y se actualiza miestras se ejecuta
+				 * el juego para luego a actualizarlo a 0, cada 1segundo
+				 */
+				CONTADOR_APS = "APS: " + aps;
+				CONTADOR_FPS = "FPS: " + fps;
 				print("Frames por segundo\n" + fps);
 				aps = 0;
 				fps = 0;

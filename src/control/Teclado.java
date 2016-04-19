@@ -11,6 +11,7 @@ public final class Teclado implements KeyListener {
 	// sin getter and setters, para evitar retrasos en
 	// el procesamiento
 	public boolean arriba, abajo, izquierda, derecha;
+	public boolean salir;
 
 	public void actualizar() {
 		// fijando teclas para jugar control moderno
@@ -19,6 +20,7 @@ public final class Teclado implements KeyListener {
 		abajo = teclas[KeyEvent.VK_S];
 		izquierda = teclas[KeyEvent.VK_A];
 		derecha = teclas[KeyEvent.VK_D];
+		salir = teclas[KeyEvent.VK_ESCAPE];
 
 	}
 
