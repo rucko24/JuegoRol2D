@@ -161,6 +161,7 @@ public class Juego extends Canvas implements Runnable {
 		estrategia.show();
 
 		fps++;
+		// hola
 	}
 
 	@Override

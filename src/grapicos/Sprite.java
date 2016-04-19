@@ -10,10 +10,38 @@ public final class Sprite {
 	private HojaSprites hoja;
 
 	// coleccion de sprites
-
 	// 2 contructores, 0 = a negro.
+
 	public static final Sprite VACIO = new Sprite(32, 0);
 	public static final Sprite ASFALTO = new Sprite(32, 0, 0, HojaSprites.desierto);
+
+	public static final Sprite ARENA = new Sprite(32, 1, 0, HojaSprites.desierto);
+
+	public static final Sprite BORDE_ASFALTO = new Sprite(32, 2, 0, HojaSprites.desierto);
+
+	public static final Sprite RALLA_ASFALTO = new Sprite(32, 3, 0, HojaSprites.desierto);
+
+	public static final Sprite PIEDRA = new Sprite(32, 4, 0, HojaSprites.desierto);
+
+	public static final Sprite ESQUINA_ASFALTO = new Sprite(32, 5, 0, HojaSprites.desierto);
+
+	public static final Sprite PIEDRA_ARENA = new Sprite(32, 6, 0, HojaSprites.desierto);
+
+	public static final Sprite PUERTA_ESQUINA_SUPERIOR_IZUIERDA = new Sprite(32, 6, 1, HojaSprites.desierto);
+
+	public static final Sprite PUERTA_SUPERIOR = new Sprite(32, 7, 1, HojaSprites.desierto);
+
+	public static final Sprite PUERTA_ESQUINA_SUPERIOR_DERECHA = new Sprite(32, 8, 1, HojaSprites.desierto);
+
+	public static final Sprite PUERTA_CENTRAL_IZQUIERDA = new Sprite(32, 6, 2, HojaSprites.desierto);
+
+	public static final Sprite PUERTA_CENTRAL = new Sprite(32, 7, 2, HojaSprites.desierto);
+
+	public static final Sprite PUERTA_CENTRAL_DERECHA = new Sprite(32, 8, 2, HojaSprites.desierto);
+
+	public static final Sprite OXIDO = new Sprite(32, 3, 3, HojaSprites.desierto);
+
+	public static final Sprite PIEDRA_ARENA_ASFALTO = new Sprite(32, 4, 3, HojaSprites.desierto);
 
 	// fin de la coleccion de sprites
 

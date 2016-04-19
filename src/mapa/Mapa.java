@@ -78,11 +78,29 @@ public abstract class Mapa {
 		case 0:
 			return Cuadro.ASFALTO;
 		case 1:
-
+			return Cuadro.ARENA;
 		case 2:
-
+			return Cuadro.BORDE_ASFALTO;
 		case 3:
-
+			return Cuadro.RALLA_ASFALTO;
+		case 4:
+			return Cuadro.PIEDRA;
+		case 5:
+			return Cuadro.ESQUINA_ASFALTO;
+		case 6:
+			return Cuadro.PIEDRA_ARENA;
+		case 7:
+			return Cuadro.PUERTA_ESQUINA_SUPERIOR_IZUIERDA;
+		case 8:
+			return Cuadro.PUERTA_SUPERIOR;
+		case 9:
+			return Cuadro.PUERTA_CENTRAL_IZQUIERDA;
+		case 10:
+			return Cuadro.PUERTA_CENTRAL;
+		case 11:
+			return Cuadro.OXIDO;
+		case 12:
+			return Cuadro.PIEDRA_ARENA_ASFALTO;
 		default:
 			return Cuadro.VACIO;
 		}
