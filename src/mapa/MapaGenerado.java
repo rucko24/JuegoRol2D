@@ -19,7 +19,7 @@ public class MapaGenerado extends Mapa {
 			for (int x = 0; x < ancho; x++) {
 				// esto nos ayuda a navegar al cuadrado
 				// en concreto
-				cuadros[x + y * ancho] = aleatorio.nextInt(3);
+				cuadros[x + y * ancho] = aleatorio.nextInt(13);
 			}
 		}
 	}
