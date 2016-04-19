@@ -9,6 +9,7 @@ public abstract class Mapa {
 	protected int alto;
 	// array que recoje cuadros de 32 px
 	protected int cuadros[];
+	protected Cuadro cuadrosCatalogo[];
 
 	public Mapa(int ancho, int alto) {
 		this.alto = alto;
@@ -19,11 +20,15 @@ public abstract class Mapa {
 		generarMapa();
 	}
 
+	public Mapa(String ruta) {
+		cargarMapa(ruta);
+	}
+
 	protected void generarMapa() {
 
 	}
 
-	private void cargarMapa(String ruta) {
+	protected void cargarMapa(String ruta) {
 
 	}
 
