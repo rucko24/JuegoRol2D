@@ -135,7 +135,7 @@ public class Juego extends Canvas implements Runnable {
 		}
 
 		//
-		pantalla.limpiar();
+		// pantalla.limpiar();
 		mapa.mostrar(x, y, pantalla);
 
 		// manera mas elegante de copiar los 2 arrays mas rapido

@@ -11,42 +11,25 @@ public final class Sprite {
 
 	// coleccion de sprites
 	// 2 contructores, 0 = a negro.
-
 	public static final Sprite VACIO = new Sprite(32, 0);
-
-	public static final Sprite ASFALTO = new Sprite(32, 0, 0, HojaSprites.desierto);
-
-	public static final Sprite ARENA = new Sprite(32, 1, 0, HojaSprites.desierto);
-
-	public static final Sprite BORDE_ASFALTO = new Sprite(32, 2, 0, HojaSprites.desierto);
-
-	public static final Sprite RALLA_ASFALTO = new Sprite(32, 3, 0, HojaSprites.desierto);
-
-	public static final Sprite PIEDRA = new Sprite(32, 4, 0, HojaSprites.desierto);
-
-	public static final Sprite ESQUINA_ASFALTO = new Sprite(32, 5, 0, HojaSprites.desierto);
-
-	public static final Sprite PIEDRA_ARENA = new Sprite(32, 6, 0, HojaSprites.desierto);
-
-	public static final Sprite PUERTA_ESQUINA_SUPERIOR_IZUIERDA = new Sprite(32, 6, 1, HojaSprites.desierto);
-
-	public static final Sprite PUERTA_SUPERIOR = new Sprite(32, 7, 1, HojaSprites.desierto);
-
-	public static final Sprite PUERTA_ESQUINA_SUPERIOR_DERECHA = new Sprite(32, 8, 1, HojaSprites.desierto);
-
-	public static final Sprite PUERTA_CENTRAL_IZQUIERDA = new Sprite(32, 6, 2, HojaSprites.desierto);
-
-	public static final Sprite PUERTA_CENTRAL = new Sprite(32, 7, 0, HojaSprites.desierto);
-
-	public static final Sprite PUERTA_CENTRAL_DERECHA = new Sprite(32, 8, 2, HojaSprites.desierto);
-
-	public static final Sprite OXIDO = new Sprite(32, 3, 3, HojaSprites.desierto);
-
-	public static final Sprite PIEDRA_ARENA_ASFALTO = new Sprite(32, 4, 3, HojaSprites.desierto);
-
+	public static final Sprite ASFALTO = new Sprite(32, 0, 0, 0, HojaSprites.desierto);
+	public static final Sprite ARENA = new Sprite(32, 1, 0, 0, HojaSprites.desierto);
+	public static final Sprite BORDE_ASFALTO = new Sprite(32, 2, 0, 0, HojaSprites.desierto);
+	public static final Sprite RALLA_ASFALTO = new Sprite(32, 3, 0, 0, HojaSprites.desierto);
+	public static final Sprite PIEDRA = new Sprite(32, 4, 0, 0, HojaSprites.desierto);
+	public static final Sprite ESQUINA_ASFALTO = new Sprite(32, 5, 0, 0, HojaSprites.desierto);
+	public static final Sprite PIEDRA_ARENA = new Sprite(32, 6, 0, 0, HojaSprites.desierto);
+	public static final Sprite PUERTA_ESQUINA_SUPERIOR_IZUIERDA = new Sprite(32, 6, 1, 0, HojaSprites.desierto);
+	public static final Sprite PUERTA_SUPERIOR = new Sprite(32, 7, 1, 0, HojaSprites.desierto);
+	public static final Sprite PUERTA_ESQUINA_SUPERIOR_DERECHA = new Sprite(32, 8, 1, 0, HojaSprites.desierto);
+	public static final Sprite PUERTA_CENTRAL_IZQUIERDA = new Sprite(32, 6, 2, 0, HojaSprites.desierto);
+	public static final Sprite PUERTA_CENTRAL = new Sprite(32, 7, 0, 0, HojaSprites.desierto);
+	public static final Sprite PUERTA_CENTRAL_DERECHA = new Sprite(32, 8, 2, 0, HojaSprites.desierto);
+	public static final Sprite OXIDO = new Sprite(32, 3, 3, 0, HojaSprites.desierto);
+	public static final Sprite PIEDRA_ARENA_ASFALTO = new Sprite(32, 4, 3, 0, HojaSprites.desierto);
 	// fin de la coleccion de sprites
 
-	public Sprite(final int lado, final int columna, final int fila, final HojaSprites hoja) {
+	public Sprite(final int lado, final int columna, final int fila, final int version, final HojaSprites hoja) {
 		this.lado = lado;
 
 		pixeles = new int[lado * lado];
@@ -59,6 +42,35 @@ public final class Sprite {
 
 		this.hoja = hoja;// para acceder a la hoja de Sprites
 
+		// version numero comprendido entre el 1 y el 7, para rotar los sprites
+		//
+		cargarSprite(version);
+	}
+
+	// contructor de este color definido
+	public Sprite(final int lado, final int color) {
+		this.lado = lado;
+		pixeles = new int[lado * lado];
+
+		// dar tantas iteraciones como pixeles tenga el array
+		for (int f = 0; f < pixeles.length; f++) {
+			pixeles[f] = color;
+		}
+	}
+
+	public int obtenerLado() {
+		return lado;
+	}
+
+	private void cargarSprite(int version) {
+		if (version == 0) {
+			cargaNormal();
+		} else {
+			cargaManipulada(version);
+		}
+	}
+
+	private void cargaNormal() {
 		// contando la vueltas del bucle
 		// con la y primero, de izquierda a derecha
 		// y de arriba a abajo
@@ -76,21 +88,42 @@ public final class Sprite {
 				pixeles[x + y * lado] = hoja.pixeles[(x + this.x) + (y + this.y) * hoja.obtenerAncho()];
 			}
 		}
-
 	}
 
-	// contructor de este color definido
-	public Sprite(final int lado, final int color) {
-		this.lado = lado;
-		pixeles = new int[lado * lado];
-
-		// dar tantas iteraciones como pixeles tenga el array
-		for (int f = 0; f < pixeles.length; f++) {
-			pixeles[f] = color;
+	private void cargaManipulada(int version) {
+		int pixelesTmp[] = iniciarPixelesTemporales();
+		
+		switch(version) {
+		case 1:
+			return 
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		
+		default:
+				
 		}
 	}
 
-	public int obtenerLado() {
-		return lado;
+	private int[] iniciarPixelesTemporales() {
+
+		int pixelesTmp[] = new int[lado * lado];
+
+		for (int y = 0; y < lado; y++) {
+			for (int x = 0; x < lado; x++) {
+				// almacenaremos el sprite original
+				// en pxTmp para manipular la copia
+				pixelesTmp[x + y * lado] = hoja.pixeles[(x + this.x) + (y + this.y) * hoja.obtenerAncho()];
+			}
+		}
+
+		return pixelesTmp;
+	}
+
+	private void invertirXY(int pixelesTemporales[]) {
+
 	}
 }
