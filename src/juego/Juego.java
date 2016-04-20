@@ -103,13 +103,17 @@ public class Juego extends Canvas implements Runnable {
 		 */
 		if (teclado.arriba) { // tecla W
 			y--;// abajo
-		} else if (teclado.abajo) {
+		}
+		if (teclado.abajo) {
 			y++;// arriba
-		} else if (teclado.izquierda) {
+		}
+		if (teclado.izquierda) {
 			x--; // derecha
-		} else if (teclado.derecha) {
+		}
+		if (teclado.derecha) {
 			x++;// izquierda
-		} else if (teclado.salir) {
+		}
+		if (teclado.salir) {
 			System.exit(0);
 		}
 

@@ -10,7 +10,10 @@ public final class Teclado implements KeyListener {
 
 	// sin getter and setters, para evitar retrasos en
 	// el procesamiento
-	public boolean arriba, abajo, izquierda, derecha;
+	public boolean arriba;
+	public boolean abajo;
+	public boolean izquierda;
+	public boolean derecha;
 	public boolean salir;
 
 	public void actualizar() {

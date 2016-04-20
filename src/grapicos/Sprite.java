@@ -13,6 +13,7 @@ public final class Sprite {
 	// 2 contructores, 0 = a negro.
 
 	public static final Sprite VACIO = new Sprite(32, 0);
+
 	public static final Sprite ASFALTO = new Sprite(32, 0, 0, HojaSprites.desierto);
 
 	public static final Sprite ARENA = new Sprite(32, 1, 0, HojaSprites.desierto);
@@ -35,7 +36,7 @@ public final class Sprite {
 
 	public static final Sprite PUERTA_CENTRAL_IZQUIERDA = new Sprite(32, 6, 2, HojaSprites.desierto);
 
-	public static final Sprite PUERTA_CENTRAL = new Sprite(32, 7, 2, HojaSprites.desierto);
+	public static final Sprite PUERTA_CENTRAL = new Sprite(32, 7, 0, HojaSprites.desierto);
 
 	public static final Sprite PUERTA_CENTRAL_DERECHA = new Sprite(32, 8, 2, HojaSprites.desierto);
 

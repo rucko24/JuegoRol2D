@@ -49,23 +49,23 @@ public class MapaCargado extends Mapa {
 		for (int i = 0; i < pixeles.length; i++) {
 			switch (pixeles[i]) {
 			// cada color corresponde a un sprite
-			case 0x5a5a5a:
+			case 0xff5a5a5a:
 				cuadrosCatalogo[i] = Cuadro.ASFALTO;//
 				// continue para saltar del switch case, y pasar
 				// a la siguiente iteracion
 				// colocar ff canal Alfa
 				continue;
-			case 0xffefb6:
+			case 0xffffefb6:
 				cuadrosCatalogo[i] = Cuadro.ARENA;//
 				continue;
 			case 0xffa6a4a3:
 				cuadrosCatalogo[i] = Cuadro.PIEDRA;
 				continue;
 			case 0xff68505a:
-				cuadrosCatalogo[i] = Cuadro.OXIDO;//
+				cuadrosCatalogo[i] = Cuadro.OXIDO;// puerta + asfalto
 				continue;
 			case 0xff857e70:
-				cuadrosCatalogo[i] = Cuadro.PIEDRA_ARENA_ASFALTO;// d2d2cb
+				cuadrosCatalogo[i] = Cuadro.PIEDRA_ARENA_ASFALTO;// 938a79
 				continue;
 			case 0xff2b2416:
 				cuadrosCatalogo[i] = Cuadro.BORDE_ASFALTO;
@@ -73,10 +73,10 @@ public class MapaCargado extends Mapa {
 			case 0xffd2d2cb:
 				cuadrosCatalogo[i] = Cuadro.RALLA_ASFALTO;//
 				continue;
-			case 0xffb3ac99:
-				cuadrosCatalogo[i] = Cuadro.ESQUINA_ASFALTO;//
+			case 0xffcdcfa7:
+				cuadrosCatalogo[i] = Cuadro.ESQUINA_ASFALTO;// cdcfa7 b3ac99
 				continue;
-			case 0xff7c1541:
+			case 0xff553833:
 				cuadrosCatalogo[i] = Cuadro.PUERTA_CENTRAL_IZQUIERDA;//
 				continue;
 			case 0xff850038:
@@ -90,6 +90,7 @@ public class MapaCargado extends Mapa {
 				continue;
 			case 0xff524736:
 				cuadrosCatalogo[i] = Cuadro.PUERTA_CENTRAL;//
+				continue;
 			default:
 				cuadrosCatalogo[i] = Cuadro.VACIO; // cuadro negro
 			}
