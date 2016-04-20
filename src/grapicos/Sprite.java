@@ -92,19 +92,19 @@ public final class Sprite {
 
 	private void cargaManipulada(int version) {
 		int pixelesTmp[] = iniciarPixelesTemporales();
-		
-		switch(version) {
+
+		switch (version) {
 		case 1:
-			return 
+
 		case 2:
 		case 3:
 		case 4:
 		case 5:
 		case 6:
 		case 7:
-		
+
 		default:
-				
+
 		}
 	}
 
@@ -123,7 +123,32 @@ public final class Sprite {
 		return pixelesTmp;
 	}
 
+	// estos metodos nos daran las 7 versiones de los Sprites
+	private void invertirX(int pixelesTemporales[]) {
+
+	}
+
+	private void invertirY(int pixelesTemporales[]) {
+
+	}
+
 	private void invertirXY(int pixelesTemporales[]) {
+
+	}
+
+	private void rotar90Izq(int pixelesTemporales[]) {
+
+	}
+
+	private void rotar90Dere(int pixelesTemporales[]) {
+
+	}
+
+	private void rotar90IzqInvertido(int pixelesTemporales[]) {
+
+	}
+
+	private void rotar90DereInvertido(int pixelesTemporales[]) {
 
 	}
 }
