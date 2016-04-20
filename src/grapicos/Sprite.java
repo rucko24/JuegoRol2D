@@ -116,7 +116,7 @@ public final class Sprite {
 			rotar90DereInvertidoY(pixelesTemporales);
 			break;
 		default:
-
+			cargaNormal();
 		}
 	}
 
